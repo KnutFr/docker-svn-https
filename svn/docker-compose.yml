@@ -1,0 +1,15 @@
+version: "3"
+services:
+    svn:
+        build: ./build
+        image: knutsvn:1.0
+        container_name: knut-svn-dav
+        volumes:
+            - /var/subversion:/var/svn 
+        restart: always
+        env_file: .env
+
+networks:
+    default:
+        external:
+            name: knutech_main
